@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/Inicio rápido.md",
+                "file": "docs/Herramientas para Desarrolladores.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Inicio rápido"
+              "title": "Herramientas para Desarrolladores"
             }
           }
         ]
@@ -187,6 +187,7 @@
   },
   "active": "1585403a3625871d",
   "lastOpenFiles": [
+    "docs/images/mermaid-diagram.png",
     "docs/Herramientas para Desarrolladores.md",
     "docs/Inicio rápido.md",
     "docs/images/menu.png",
@@ -203,7 +204,6 @@
     "docs/images/carpeta-images.png",
     "Pasted image 20260831070334.png",
     "Pasted image 20260831070223.png",
-    "docs/images/ATL.png",
     "().md",
     "README.md",
     "images",

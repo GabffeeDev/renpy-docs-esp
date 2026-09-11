@@ -210,7 +210,7 @@ Para que Ren'Py pueda mostrar una imagen, primero debes registrarla mediante la 
 
 Su sintaxis es la siguiente:
 
-```
+```python
 image nombre_de_la_imagen = "ruta/del/archivo.png"
 ```
 
@@ -223,7 +223,7 @@ La etiqueta identifica al personaje o recurso principal, mientras que los atribu
 
 Por ejemplo:
 
-```
+```python
 image yuri casual happy = "images/sprites/yuri/casual_happy.png"
 ```
 
@@ -235,7 +235,7 @@ Atributos: casual y happy
 
 Otro ejemplo:
 
-```
+```python
 image monika school angry = "images/sprites/monika/school_angry.png"
 ```
 
@@ -262,7 +262,7 @@ game/images/yuri/sad.png
 
 se registrará automáticamente como:
 
-```
+```python
 image yuri sad
 ```
 
