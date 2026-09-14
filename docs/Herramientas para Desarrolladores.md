@@ -1,3 +1,6 @@
+!!! note "Aviso"
+    Las herramientas de esta página (**Ren'Py Toolkit** y **Ren'Py Script Converter**) son proyectos independientes creados por esta comunidad, **no forman parte del motor oficial de Ren'Py**. A diferencia del resto de la documentación, que traduce el contenido oficial, esto es software adicional y opcional.
+
 ### Ren'Py Toolkit
 
 [▶️ Ver tutorial en YouTube](https://youtu.be/ijLl-BmRSkM)

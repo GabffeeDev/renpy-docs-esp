@@ -200,6 +200,22 @@ Ren'Py muestra:
 **Eileen:** Hola.
 
 ---
+
+#### Personalizando el personaje con más parámetros
+
+`Character()` puede recibir más parámetros aparte del nombre. Estos son los que más vas a usar al principio:
+
+```python
+define y = Character("Yuri", who_color="#c8a2c8", image="yuri")
+```
+
+- `who_color`: cambia el color del **nombre** del personaje en la caja de diálogo (usa un código hexadecimal, como en HTML/CSS).
+- `image`: vincula el personaje con una etiqueta (tag) de imagen. Si haces esto, cada vez que ese personaje hable y exista una imagen con esa etiqueta en pantalla, Ren'Py podrá cambiarla automáticamente añadiendo atributos junto al diálogo (por ejemplo `y happy "¡Hola!"` mostraría a Yuri feliz sin necesitar un `show` aparte).
+- `kind`: te permite crear una "plantilla" de personaje (por ejemplo, un estilo común para todos los personajes secundarios) y reutilizarla al definir varios personajes distintos, en vez de repetir los mismos parámetros una y otra vez.
+
+Por ahora no necesitas dominarlos, pero es bueno que sepas que existen: los encontrarás muy seguido en proyectos de otras personas.
+
+---
 ### Definiendo imágenes
 
 Ren'Py permite estas extensiones: .jpg, .jpeg, .png, .webp, .avif y .svg.
@@ -1752,6 +1768,26 @@ Ahora la respuesta será: `Sí.`
 
 ---
 
+##### Listas y diccionarios (un vistazo rápido)
+
+Además de números, texto y booleanos, más adelante también vas a necesitar guardar **varios valores relacionados a la vez**. Para eso existen las **listas** y los **diccionarios**. Por ahora solo te dejo un adelanto:
+
+Una **lista** guarda varios elementos en orden, por ejemplo un inventario:
+
+```python
+default inventario = ["llave", "linterna", "mapa"]
+```
+
+Un **diccionario** guarda información en pares de "clave" y "valor", por ejemplo la afinidad con varios personajes a la vez:
+
+```python
+default afinidad = {"natsuki": 0, "yuri": 0, "sayori": 0}
+```
+
+No te preocupes si todavía no los entiendes del todo: no los necesitas para empezar, pero es útil que sepas que existen, porque los verás con frecuencia en proyectos más grandes. Los cubriremos a fondo más adelante.
+
+---
+
 #### `default` — darle un valor inicial a la variable
 
 Antes de utilizar una variable, necesitamos darle un valor inicial. En Ren'Py normalmente utilizamos:
@@ -2228,3 +2264,56 @@ Esto permite crear decisiones que dependen de acciones anteriores, como:
 > **Dato curioso:**
 > 
 > Ren'Py está construido sobre Python, por eso muchas de las expresiones utilizadas para trabajar con variables —como `if`, `elif`, `else`, `True`, `False` y los operadores `+=`— siguen la sintaxis de Python. Esto permite que Ren'Py combine narrativa con lógica de programación de una forma bastante natural.
+
+---
+
+## Profundizando un poco más
+
+Ya conoces lo esencial para escribir una novela visual sencilla de principio a fin. Antes de cerrar este apartado, vale la pena aclarar algunas piezas que vas a encontrar tarde o temprano.
+
+### `default`, `define` e `init python` — ¿cuál uso?
+
+A lo largo de esta guía usaste tanto `default` como `define`, pero sin explicar a fondo la diferencia. Ahora que ya entiendes qué es una variable, esto va a tener más sentido:
+
+| Sentencia | ¿Se guarda al guardar partida? | ¿Participa en rollback? | ¿Para qué se usa? |
+| --- | --- | --- | --- |
+| `default` | Sí | Sí | Variables que **cambian** durante la historia (afinidad, decisiones, inventario). |
+| `define` | No (se trata como constante) | No | Valores que **no cambian** en toda la partida (personajes, constantes de configuración). |
+| `init python:` | No, salvo que el objeto que contiene se modifique | No | Definir funciones, clases o preparar cosas antes de que el juego arranque. |
+
+Por eso los personajes se definen con `define` (no esperamos que "Eileen" deje de llamarse así a mitad de partida), mientras que la afinidad o las decisiones del jugador usan `default` (si no lo hicieras así, quien cargue una partida guardada después de que agregues una variable nueva podría toparse con un error, porque esa variable nunca se llegó a crear en su partida).
+> **Fuente:** [Python Statements — documentación oficial de Ren'Py](https://www.renpy.org/doc/html/python.html)
+
+---
+
+### Guardado, carga y rollback
+
+Puede que te estés preguntando: *si mis variables cambian con `$` o `default`, ¿Ren'Py las recuerda al guardar la partida?*
+
+Sí. Cuando el jugador guarda la partida, Ren'Py guarda automáticamente el estado del juego, incluyendo el valor de todas las variables declaradas con `default`. No necesitas hacer nada especial para que esto funcione, siempre que hayas usado `default` (y no solo `$`) para crear la variable por primera vez.
+
+Además, Ren'Py incluye **rollback**: el jugador puede retroceder en la historia (normalmente con la rueda del mouse o `Re Pág`) para revisar diálogos anteriores o deshacer una decisión antes de que se guarde. Esto ya viene activado por defecto, sin que tengas que programarlo.
+> **Fuente:** [Saving, Loading, and Rollback — documentación oficial de Ren'Py](https://www.renpy.org/doc/html/save_load_rollback.html)
+
+---
+
+### Pantallas (`screen`) — lo que viene después
+
+Todavía no hemos hablado de las **pantallas** (`screen`), que son la forma en la que Ren'Py te permite crear interfaces personalizadas: un inventario visual, una pantalla de estadísticas, un menú propio, etc. Es un tema más avanzado que merece su propio apartado, así que lo dejamos para una próxima sección de esta documentación. Por ahora, solo ten presente que existe y que es el siguiente paso natural una vez que domines lo visto aquí.
+
+---
+
+### Depuración básica: encontrar y corregir errores
+
+Cuando estás empezando es normal encontrarte con errores (por ejemplo, de indentación). Ren'Py incluye herramientas para hacer esto menos frustrante, disponibles cuando el proyecto está en **modo desarrollador** (`config.developer`, activado por defecto en un proyecto nuevo):
+
+- **Shift + O** abre la **consola de desarrollador**, donde puedes escribir y probar código Ren'Py o Python directamente mientras el juego corre.
+- **Shift + D** abre el **menú de desarrollador**, con accesos directos a varias herramientas de depuración.
+- **Shift + R** guarda la partida, recarga el script y la vuelve a cargar automáticamente. Es muy útil para ver cambios en tu código sin tener que reiniciar el juego desde cero.
+
+Recuerda desactivar `config.developer` antes de publicar tu juego, para que estas herramientas no queden disponibles para el jugador final.
+> **Fuente:** [Developer Tools — documentación oficial de Ren'Py](https://www.renpy.org/doc/html/developer_tools.html)
+
+---
+
+> **Para reflexionar:** Fíjate en cómo Ren'Py distingue entre lo que debe **recordarse** (`default`) y lo que debe **permanecer constante** (`define`). ¿Se te ocurre algún paralelo con cómo organizamos lo importante y lo constante en nuestra propia vida? *"Todo tiene su tiempo, y todo lo que se quiere debajo del cielo tiene su hora."* (Eclesiastés 3:1)

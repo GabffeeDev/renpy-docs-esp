@@ -6,6 +6,9 @@ Tanto si estás comenzando con Ren'Py como si deseas profundizar en aspectos má
 
 Te recomendamos comenzar por **Inicio rápido** y avanzar desde allí según tus necesidades.
 
+!!! note "Próximamente"
+    Estamos preparando nuevas secciones sobre **pantallas (`screen`)**, **listas y diccionarios** a fondo, y **depuración avanzada**. Si quieres ver algún tema en particular, abre un Issue en el repositorio.
+
 > _"Pequeñas mejoras, realizadas de forma constante, producen grandes resultados."_ — Kaizen (改善)
 
 **¡Esperamos que esta documentación te ayude a dar vida a tus historias!**
