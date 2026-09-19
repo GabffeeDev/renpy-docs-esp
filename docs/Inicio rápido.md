@@ -18,7 +18,7 @@ Te recomiendo mantener una estructura de carpetas ordenada desde el principio. A
 
 Además, te recomiendo instalar **Visual Studio Code** y configurarlo como editor de texto del sistema. Así Ren'Py lo utilizará automáticamente para abrir los archivos `.rpy` y no tendrás que volver a configurarlo después de cada actualización.
 
-[Visual Studio Code - Descargar](https://code.visualstudio.com/download?_exp_download=fb315fc982)
+[Descarga Visual Studio Code](https://code.visualstudio.com/download?_exp_download=fb315fc982)
 
 ![Preferencias de Ren'Py con opciones de carpeta de proyectos y editor](images/renpy-preferencias.png)
 

@@ -1,5 +1,6 @@
 site_name: Documentación Ren'py Español
 site_description: Documentación de Ren'Py en Español
+site_url: https://gabffeedev.github.io/renpy-docs-esp/
 
 theme:
   name: material

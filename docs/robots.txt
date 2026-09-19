@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gabffeedev.github.io/renpy-docs-esp/sitemap.xml
