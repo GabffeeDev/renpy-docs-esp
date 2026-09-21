@@ -235,7 +235,7 @@ El objetivo no es reemplazar Ren'Py ni modificar la lógica del juego, sino **au
 **Repo:** [Ren'Py Toolkit en GitHub](https://github.com/GabffeeDev/definition-tool)
 
 #### Pasos de instalación y descarga:
- 1. En releases ir a **Ren'Py Definition Tool v1.0.0** y descargar **[RenPyToolkit.rar](https://github.com/GabffeeDev/definition-tool/releases/download/v1.0.0/RenPyToolkit.rar)**
+ 1. En releases ir a **Ren'Py Definition Tool v1.0.0** y descargar el **.rar**.
  2. Descomprimir el .rar
  3. Ejecutar el .exe (Les dirá que es de un editor desconocido solo ignórenlo)
 
